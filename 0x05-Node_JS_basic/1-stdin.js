@@ -16,3 +16,5 @@ rl.on('line', (name) => {
   }
 });
 
+module.exports = rl;
+
