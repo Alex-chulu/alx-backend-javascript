@@ -1,10 +1,9 @@
-function cleanSet(inputSet, startString) {
-  const filteredValues = Array.from(inputSet).filter((value) =>
-    value.startsWith(startString)
-  );
-
-  return filteredValues.join('-');
+export default function cleanSet(set, startString) {
+  let respo;
+  if (!startString || typeof startString !== 'string') {
+    return '';
+  }
+  respo = Array.from(set).filter((word) => typeof word === 'string' && word.startsWith(startString));
+  respo = respo.map((word) => word.slice(startString.length));
+  return respo.join('-');
 }
-
-module.exports = cleanSet;
-
