@@ -13,20 +13,3 @@ function handleResponseFromAPI(promise) {
     });
 }
 
-// Example usage:
-const apiPromise = new Promise((resolve, reject) => {
-  // Simulate resolving the promise
-  // resolve('Some data');
-  
-  // Simulate rejecting the promise
-  // reject('An error occurred');
-});
-
-handleResponseFromAPI(apiPromise)
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
