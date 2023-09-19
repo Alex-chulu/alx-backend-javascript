@@ -1,13 +1,9 @@
 function cleanSet(inputSet, startString) {
-  const filteredValues = new Set();
+  const filteredValues = Array.from(inputSet).filter((value) =>
+    value.startsWith(startString)
+  );
 
-  inputSet.forEach((value) => {
-    if (value.startsWith(startString)) {
-      filteredValues.add(value.substring(startString.length));
-    }
-  });
-
-  return Array.from(filteredValues).join('-');
+  return filteredValues.join('-');
 }
 
 module.exports = cleanSet;
