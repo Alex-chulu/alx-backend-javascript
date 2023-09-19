@@ -1,13 +1,13 @@
-function cleanSet(set, startString) {
-  if (!(set instanceof Set) || typeof startString !== 'string') {
-    throw new Error("Invalid input types");
-  }
+function cleanSet(inputSet, startString) {
+  const filteredValues = new Set();
 
-  const valuesWithStartString = Array.from(set).filter(value => value.startsWith(startString));
+  inputSet.forEach((value) => {
+    if (value.startsWith(startString)) {
+      filteredValues.add(value.substring(startString.length));
+    }
+  });
 
-  const cleanedString = valuesWithStartString.join('-');
-
-  return cleanedString;
+  return Array.from(filteredValues).join('-');
 }
 
 module.exports = cleanSet;
