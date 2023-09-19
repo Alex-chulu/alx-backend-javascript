@@ -1,3 +1,4 @@
+// Define a function named getListStudents ID:wq
 function getListStudentIds(arrayOfStudents) {
   // Check if the input is an array
   if (!Array.isArray(arrayOfStudents)) {
@@ -10,7 +11,6 @@ function getListStudentIds(arrayOfStudents) {
   return studentIds;
 }
 
-// Example usage:
 // const students = getListStudents(); // Get the list of students
 // const studentIds = getListStudentIds(students); // Get the list of student IDs
 
