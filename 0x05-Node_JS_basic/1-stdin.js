@@ -7,13 +7,10 @@ const rl = readline.createInterface({
 
 console.log('Welcome to Holberton School, what is your name?');
 
-rl.on('line', (name) => {
-  if (name.toLowerCase() === 'exit') {
-    console.log('This important software is now closing');
-    rl.close();
-  } else {
-    console.log(`Your name is: ${name}`);
-  }
+rl.question('', (name) => {
+  console.log(`Your name is: ${name}`);
+  console.log('This important software is now closing');
+  rl.close();
 });
 
 module.exports = rl;
