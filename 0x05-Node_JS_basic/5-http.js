@@ -53,7 +53,6 @@ const app = http.createServer(async (req, res) => {
   }
 });
 
-// Listen on port 1245
 app.listen(1245, 'localhost');
 
 module.exports = app;
