@@ -1,4 +1,4 @@
-class HolbertonCourse {
+export default class HolbertonCourse {
   constructor(name, length, students) {
     // Verify the types of attributes
     if (typeof name !== 'string' || typeof length !== 'number' || !Array.isArray(students)) {
