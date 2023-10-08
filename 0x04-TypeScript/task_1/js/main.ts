@@ -33,9 +33,6 @@ class Teacher {
   }
 }
 
-// Example usage:
-const teacher3 = new Teacher('John', 'Doe', false, 'London');
-teacher3.setAttribute('contract', false);
-
-console.log(teacher3.toString());
-
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
