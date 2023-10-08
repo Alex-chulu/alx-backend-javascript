@@ -1,6 +1,5 @@
 const express = require('express');
 const countStd = require('./3-read_file_async');
-const fs = require('fs');
 
 const app = express();
 app.get('/', (req, res) => res.send('Hello Holberton School!'));
