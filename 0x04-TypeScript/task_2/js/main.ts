@@ -50,3 +50,41 @@ console.log(createEmployee(200)); // Teacher
 console.log(createEmployee(1000)); // Director
 console.log(createEmployee('$500')); // Director
 
+interface DirectorInterface {
+  workDirectorTasks(): string;
+}
+
+interface TeacherInterface {
+  workTeacherTasks(): string;
+}
+
+class Director implements DirectorInterface {
+  workDirectorTasks(): string {
+    return 'Getting to director tasks';
+  }
+}
+
+class Teacher implements TeacherInterface {
+  workTeacherTasks(): string {
+    return 'Getting to work';
+  }
+}
+
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+const director = new Director();
+const teacher = new Teacher();
+
+console.log(executeWork(director)); // Getting to director tasks
+console.log(executeWork(teacher)); // Getting to work
+
