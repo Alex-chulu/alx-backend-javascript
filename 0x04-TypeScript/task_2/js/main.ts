@@ -88,3 +88,20 @@ const teacher = new Teacher();
 console.log(executeWork(director)); // Getting to director tasks
 console.log(executeWork(teacher)); // Getting to work
 
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  } else {
+    // Handle other cases if needed
+    return 'Unknown subject';
+  }
+}
+
+console.log(teachClass('Math')); // Teaching Math
+console.log(teachClass('History')); // Teaching History
+console.log(teachClass('English')); // Unknown subject
+
