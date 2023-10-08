@@ -39,5 +39,32 @@ interface Directors extends Teacher {
 interface PrintTeacherFunction {
   (firstName: string, lastName: string): string;
   }
-const result = printTeacher("John", "Doe");
-console.log(result); // Output: J. Doe
+
+interface StudentConstructor {
+  firstName: string;
+  lastName: string;
+}
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+  private firstName: string;
+  private lastName: string;
+
+  constructor({ firstName, lastName }: StudentConstructor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
