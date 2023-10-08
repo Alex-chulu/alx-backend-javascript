@@ -1,16 +1,40 @@
 const express = require('express');
-const countStd = require('./3-read_file_async');
-
+const fs = require('fs');
 const app = express();
-app.get('/', (req, res) => res.send('Hello Holberton School!'));
-app.get('/students', async (req, res) => {
-  const title = 'This is the list of our students\n';
-  try {
-    const data = await countStd(process.argv[2]);
-    res.send(`${title}${data.join('\n')}`);
-  } catch (error) {
-    res.send(`${title}${error.message}`);
-  }
+const port = 1245;
+
+// Middleware to handle plain text responses
+app.use(express.text());
+
+// Handle requests to the root URL ("/")
+app.get('/', (req, res) => {
+  res.send('Hello Holberton School!\n');
 });
-app.listen(1245);
+
+// Handle requests to the "/students" URL
+app.get('/students', (req, res) => {
+  // Read the CSV file asynchronously
+  fs.readFile(process.argv[2], 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Cannot load the database\n');
+    }
+
+    // Split the CSV data into lines
+    const lines = data.split('\n').filter(line => line.trim() !== '');
+
+    // Prepare the response as plain text
+    let responseText = 'This is the list of our students\n';
+    responseText += lines.join('\n') + '\n';
+
+    res.send(responseText);
+  });
+});
+
+// Start the Express server
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
+
+// Export the Express app
 module.exports = app;
+
