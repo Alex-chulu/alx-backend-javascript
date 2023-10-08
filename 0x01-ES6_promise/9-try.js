@@ -4,11 +4,10 @@ export default function guardrail(mathFunction) {
   try {
     queue.push(mathFunction());
   } catch (err) {
-    queue.push(`Error: ${ err.message}`);
+    queue.push(`Error: ${  err.message}`);
   } finally {
     queue.push('Guardrail was processed');
   }
 
   return queue;
 }
-
