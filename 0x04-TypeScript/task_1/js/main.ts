@@ -35,4 +35,9 @@ class Teacher {
 
 interface Directors extends Teacher {
   numberOfReports: number;
-}
+  }
+interface PrintTeacherFunction {
+  (firstName: string, lastName: string): string;
+  }
+const result = printTeacher("John", "Doe");
+console.log(result); // Output: J. Doe
